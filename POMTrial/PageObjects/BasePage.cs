@@ -1,15 +1,6 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using POMTrial.BaseClass;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using POMTrial.BaseClass.BaseT;
-using MongoDB.Driver;
 using AventStack.ExtentReports;
 using SeleniumExtras.WaitHelpers;
 
@@ -18,12 +9,10 @@ namespace POMTrial.PageObjects
     public class BasePage
     {
         IWebDriver driver;
-        // string base_url;
         ExtentTest testlog;
         protected BasePage(IWebDriver driver, ExtentTest test)
         {
             this.driver = driver;
-            //  this.base_url = "https://youtube.com";
             testlog = test;
 
         }
@@ -61,13 +50,11 @@ namespace POMTrial.PageObjects
             a.SendKeys(text);
         }
 
-
         protected virtual void Verify_element_text(string expected_text, By locator)
         {
             testlog.Log(Status.Info, $"verifying {expected_text} text");
             string actualText;
             actualText = driver.FindElement(locator).Text;
-            //  Assert.AreEqual(expected_text, actualText);
             Assert.IsTrue(actualText.Equals(expected_text));
 
         }
@@ -93,21 +80,7 @@ namespace POMTrial.PageObjects
         {
             testlog.Log(Status.Info, $"verify element {locator} visable");
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-            //wait.Until(dr =>
-            //{
-            //    var elems = dr.FindElements(locator);
-            //    return elems.Where(e => e.Displayed);
-            //});
-            //int a = 0;
             wait.Until(ExpectedConditions.ElementIsVisible(locator));
-
-            //wait.Until(ExpectedConditions.ElementIsVisible(locator), locator);
-
-
-            //bool aaa (IWebDriver dr,)
-            //{
-            //    var elems = dr.FindElements(locator);
-            //    return elems.Where(e => e.Displayed);
         }
     }
 }

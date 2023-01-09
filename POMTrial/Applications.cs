@@ -1,15 +1,6 @@
 ﻿using AventStack.ExtentReports;
 using OpenQA.Selenium;
-using POMTrial.BaseClass.BaseT;
 using POMTrial.PageObjects.YouTube;
-using POMTrial.PageObjects.YouTube.SerachObj;
-using POMTrial;
-using POMTrial.TestSteps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POMTrial.PageObjects;
 
 namespace POMTrial
